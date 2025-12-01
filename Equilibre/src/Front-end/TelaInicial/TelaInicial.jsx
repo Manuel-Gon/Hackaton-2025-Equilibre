@@ -2,7 +2,7 @@ import React from 'react'
 
 function TelaInicial() {
   return (
-    <div>Amoebassssssssssss</div>
+    <div>Equilibre</div>
   )
 }
 
