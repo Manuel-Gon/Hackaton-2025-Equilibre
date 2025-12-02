@@ -1,32 +1,32 @@
 /* ----- FOOTER ----- */
 
-.footer {
+.rodape {
   background: #f9fafb;
   padding: 60px 20px 40px 20px;
   border-top: 1px solid #e5e7eb;
   margin-top: 60px;
 }
 
-.footer-container {
+.container-rodape{
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* Grid */
-.footer-grid {
+.grade-rodape {
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
-  .footer-grid {
+  .grade-rodape {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 /* Brand */
-.footer-brand {
+.marquinha-rodape {
   max-width: 300px;
 }
 
@@ -36,7 +36,7 @@
   gap: 10px;
 }
 
-.footer-logo {
+.logo-rodape {
   width: 40px;
   height: 40px;
   background: #6BAF96;
@@ -49,20 +49,20 @@
   font-size: 20px;
 }
 
-.footer-title {
+.titulo-rodape {
   font-size: 22px;
   font-weight: bold;
   color: #6BAF96;
 }
 
-.footer-description {
+.descricao-rodape {
   margin-top: 12px;
   font-size: 15px;
   color: #6b7280;
 }
 
 /* Section titles */
-.footer-heading {
+.cabecalho-rodape {
   font-size: 18px;
   font-weight: 600;
   color: #1B4332;
@@ -70,13 +70,13 @@
 }
 
 /* Lists */
-.footer-list {
+.lista-rodape {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-link {
+.link-rodape {
   color: #6b7280;
   font-size: 15px;
   text-decoration: none;
@@ -85,30 +85,40 @@
   transition: 0.2s;
 }
 
+<<<<<<< HEAD
 .footer-link:hover {
   color: #6BAF96;
+=======
+.link-rodape:hover {
+  color: #16a34a;
+>>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Contact */
-.footer-contact-item {
+.item-contato-rodape {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 8px 0;
 }
 
+<<<<<<< HEAD
 .footer-icon {
   color: #6BAF96;
+=======
+.icone-rodape {
+  color: #16a34a;
+>>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Bottom */
-.footer-divider {
+.divisao-rodape {
   border-top: 1px solid #e5e7eb;
   margin-top: 40px;
   padding-top: 25px;
 }
 
-.footer-bottom {
+.parte-baixa-rodape{
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -116,7 +126,7 @@
 }
 
 @media (min-width: 768px) {
-  .footer-bottom {
+  .parte-baixa-rodape {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -124,17 +134,17 @@
   }
 }
 
-.footer-copy {
+.copia-rodape {
   color: #6b7280;
   font-size: 14px;
 }
 
-.footer-bottom-links {
+.parte-baixa-botoes-rodape {
   display: flex;
   gap: 16px;
 }
 
-.footer-love {
+.coracao-rodape {
   margin-top: 25px;
   display: flex;
   justify-content: center;
@@ -143,6 +153,6 @@
   font-size: 15px;
 }
 
-.footer-heart-icon {
+.icone-coracao-rodape {
   color: #ef4444;
 }
