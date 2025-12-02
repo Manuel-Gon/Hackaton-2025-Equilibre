@@ -45,10 +45,11 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <a className="boton-primario-cabecalho" > 
+            <Link to="/CadastroUsuario" className="boton-primario-cabecalho"> 
               Entrar
-            </a>
-          )}
+            </Link>
+            ) }
+
         </div>
 
 
