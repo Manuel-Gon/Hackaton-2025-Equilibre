@@ -22,7 +22,7 @@
 .logo-circle {
   width: 64px;
   height: 64px;
-  background: #16a34a; /* primary */
+  background: #6BAF96; /* primary */
   color: white;
   border-radius: 50%;
   font-size: 32px;
@@ -36,7 +36,7 @@
 .hero-title {
   font-size: 42px;
   font-weight: bold;
-  color: #16a34a;
+  color: #6BAF96;
   margin-bottom: 16px;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .btn-primary-inicial {
-  background: #16a34a;
+  background: #6BAF96;
   color: white;
   padding: 14px 26px;
   border-radius: 8px;
@@ -76,12 +76,12 @@
 }
 
 .btn-primary:hover {
-  background: #128c3f;
+  background: #6BAF96;
 }
 
 .btn-outline {
-  border: 2px solid #16a34a;
-  color: #16a34a;
+  border: 2px solid #6BAF96;
+  color: #6BAF96;
   padding: 14px 26px;
   border-radius: 8px;
   font-size: 18px;
@@ -104,7 +104,7 @@
 }
 
 .stat-number {
-  color: #16a34a;
+  color: #6BAF96;
   font-size: 26px;
   font-weight: bold;
 }
@@ -127,7 +127,7 @@
 .features-title {
   text-align: center;
   font-size: 32px;
-  color: #16a34a;
+  color: #6BAF96;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -161,7 +161,7 @@
   width: 50px;
   height: 50px;
   background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
+  color: #6BAF96;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -173,11 +173,12 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
+  color: #1B4332;
 }
 
 .feature-text {
   font-size: 16px;
-  color: #6b7280;
+  color: #1B4332;
 }
 
 .features-cta {

@@ -39,7 +39,7 @@
 .footer-logo {
   width: 40px;
   height: 40px;
-  background: #16a34a;
+  background: #6BAF96;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -52,7 +52,7 @@
 .footer-title {
   font-size: 22px;
   font-weight: bold;
-  color: #16a34a;
+  color: #6BAF96;
 }
 
 .footer-description {
@@ -65,7 +65,7 @@
 .footer-heading {
   font-size: 18px;
   font-weight: 600;
-  color: #374151;
+  color: #1B4332;
   margin-bottom: 15px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .footer-link:hover {
-  color: #16a34a;
+  color: #6BAF96;
 }
 
 /* Contact */
@@ -98,7 +98,7 @@
 }
 
 .footer-icon {
-  color: #16a34a;
+  color: #6BAF96;
 }
 
 /* Bottom */

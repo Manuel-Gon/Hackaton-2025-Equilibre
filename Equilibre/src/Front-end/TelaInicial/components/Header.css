@@ -11,7 +11,7 @@
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: -2px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,12 +23,13 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  margin-left: -130px;
 }
 
 .logo-circle {
   width: 40px;
   height: 40px;
-  background: #16a34a;
+  background: #6BAF96;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
@@ -41,7 +42,7 @@
 .logo-text {
   font-size: 20px;
   font-weight: bold;
-  color: #16a34a;
+  color: #6BAF96;
 }
 
 /* Desktop Menu */
@@ -58,7 +59,7 @@
 }
 
 .nav-link:hover {
-  color: #16a34a;
+  color: #6BAF96;
 }
 
 /* Desktop Auth */
@@ -92,7 +93,7 @@
 }
 
 .btn-primary {
-  background: #16a34a;
+  background: #6BAF96;
   color: white;
   padding: 8px 20px;
   border-radius: 6px;
@@ -107,7 +108,7 @@
 }
 
 .btn-primary:hover {
-  background: #128c3f;
+  background: #6BAF96;
 }
 
 /* Mobile Button */
@@ -140,7 +141,7 @@
 }
 
 .mobile-link:hover {
-  color: #16a34a;
+  color: #1B4332;
 }
 
 .mobile-footer {

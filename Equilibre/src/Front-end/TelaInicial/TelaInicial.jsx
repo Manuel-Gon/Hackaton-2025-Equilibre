@@ -22,7 +22,7 @@ export default function Home() {
           <h1 className="hero-title">Encontre o seu Equilíbrio</h1>
 
           <p className="hero-subtitle">
-            Seu espaço seguro para apoio, recursos e técnicas de saúde mental.
+            Seu espaço seguro com recursos e técnicas de saúde mental. <br />
             Cuide de você com compaixão e sem julgamentos.
           </p>
 
