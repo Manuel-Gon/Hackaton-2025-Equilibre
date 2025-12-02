@@ -44,10 +44,11 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <a className="btn-primary"> 
+            <Link to="/CadastroUsuario" className="btn-primary"> 
               Entrar
-            </a>
-          )}
+            </Link>
+            ) }
+
         </div>
 
 
