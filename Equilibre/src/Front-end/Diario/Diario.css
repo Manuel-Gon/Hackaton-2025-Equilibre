@@ -1,0 +1,215 @@
+/* Estrutura Principal */
+.diary-wrapper {
+  min-height: 100vh;
+  transition: background-color 0.5s ease;
+  font-family: sans-serif; /* Ou sua fonte preferida */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* Tipografia */
+.page-title {
+  font-size: 2.25rem; /* ~36px */
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem; /* ~24px */
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+/* Layout de Grade (Grid) */
+.main-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+/* Responsividade: Em telas maiores, divide em 2 colunas (2/3 e 1/3) */
+@media (min-width: 768px) {
+  .main-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Cartões (Cards) */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Seleção de Humor */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mood-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mood-button:hover {
+  border-color: var(--primary-color);
+}
+
+/* Estado ativo do botão de humor */
+.mood-button.active {
+  border-color: var(--primary-color);
+  background-color: rgba(15, 23, 42, 0.1); /* 10% de opacidade da primary */
+}
+
+.mood-emoji {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Slider de Intensidade */
+.input-range {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--border-color);
+  border-radius: var(--radius);
+  appearance: none; /* Remove estilo padrão do navegador */
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--primary-color);
+  border-color: transparent;
+}
+
+/* Botão Principal */
+.btn-primary {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Lista de Histórico */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-item {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--bg-card);
+  transition: box-shadow 0.2s;
+}
+
+.history-item:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.history-mood-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.history-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.history-intensity {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.history-notes {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  /* Limita a 2 linhas com reticências */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.loading-skeleton {
+  height: 4rem;
+  background-color: var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}

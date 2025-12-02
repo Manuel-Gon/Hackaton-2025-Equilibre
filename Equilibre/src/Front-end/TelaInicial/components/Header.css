@@ -1,5 +1,5 @@
 /* ----- HEADER ----- */
-.header {
+.cabecalho {
   width: 100%;
   background: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -8,7 +8,7 @@
   z-index: 50;
 }
 
-.header-container {
+.container-cabecalho {
   max-width: 1200px;
   margin: 0 auto;
   padding: 14px 20px;
@@ -18,14 +18,14 @@
 }
 
 /* Logo */
-.logo {
+.logo-cabecalho {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
 
-.logo-circle {
+.logo-circulo-cabecalho {
   width: 40px;
   height: 40px;
   background: #16a34a;
@@ -38,18 +38,18 @@
   font-size: 20px;
 }
 
-.logo-text {
+.texto-logo-cabecalho {
   font-size: 20px;
   font-weight: bold;
   color: #16a34a;
 }
 
 /* Desktop Menu */
-.nav-desktop {
+.nav-desktop-cabecalho {
   display: none;
 }
 
-.nav-link {
+.nav-link-cabecalho {
   font-size: 16px;
   color: #374151;
   padding: 8px 14px;
@@ -57,23 +57,23 @@
   transition: 0.2s;
 }
 
-.nav-link:hover {
+.nav-link-cabecalho:hover {
   color: #16a34a;
 }
 
 /* Desktop Auth */
-.auth-desktop {
+.auth-desktop-cabecalho {
   display: none;
   align-items: center;
   gap: 15px;
 }
 
-.user-name {
+.nome-usuario-cabecalho {
   font-weight: 500;
   color: #374151;
 }
 
-.btn-ghost {
+.boton-fantaminho-cabecalho {
   border: none;
   background: transparent;
   color: #dc2626;
@@ -87,11 +87,11 @@
   transition: 0.2s;
 }
 
-.btn-ghost:hover {
+.boton-fantaminho-cabecalho:hover {
   background: #fee2e2;
 }
 
-.btn-primary {
+.boton-primario-cabecalho {
   background: #16a34a;
   color: white;
   padding: 8px 20px;
@@ -106,12 +106,12 @@
   /* width: 50%; */
 }
 
-.btn-primary:hover {
+.boton-primario-cabecalho:hover {
   background: #128c3f;
 }
 
 /* Mobile Button */
-.menu-btn {
+.boton-menu-cabecalho {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -120,7 +120,7 @@
 }
 
 /* Mobile Menu */
-.nav-mobile {
+.nav-celular-cabecalho {
   background: #ffffff;
   width: 100%;
   padding: 20px;
@@ -130,7 +130,7 @@
   gap: 16px;
 }
 
-.mobile-link {
+.link-celular-cabecalho {
   font-size: 17px;
   color: #374151;
   padding: 10px 0;
@@ -139,11 +139,11 @@
   transition: 0.2s;
 }
 
-.mobile-link:hover {
+.link-celular-cabecalho:hover {
   color: #16a34a;
 }
 
-.mobile-footer {
+.rodape-celular {
   margin-top: 20px;
 }
 
@@ -153,20 +153,20 @@
 
 /* ---- RESPONSIVE ---- */
 @media (min-width: 768px) {
-  .nav-desktop {
+  .nav-desktop-cabecalho {
     display: flex;
     gap: 20px;
   }
 
-  .auth-desktop {
+  .auth-desktop-cabecalho {
     display: flex;
   }
 
-  .menu-btn {
+  .boton-menu-cabecalho {
     display: none;
   }
 
-  .nav-mobile {
+  .nav-celular-cabecalho {
     display: none;
   }
 }

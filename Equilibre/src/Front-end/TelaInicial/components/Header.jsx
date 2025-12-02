@@ -10,41 +10,42 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="header">
-      <div className="header-container">
+    <header className="cabecalho">
+      <div className="container-cabecalho">
 
         {/* Logo */}
-        <Link href="/" className="logo">
-          <div className="logo-circle">E</div>
-          <span className="logo-text">Equilibre</span>
+        <Link href="/" className="logo-cabecalho">
+          <div className="logo-circulo-cabecalho">E</div>
+          <span className="texto-logo-cabecalho">Equilibre</span>
         </Link>
 
         {/* Menu Desktop */}
-        <nav className="nav-desktop">
-          <Link href="/" className="nav-link">Início</Link>
+        <nav className="nav-desktop-cabecalho">
+          <Link href="/" className="nav-link-cabecalho">Início</Link>
 
           {isAuthenticated && (
             <>
-              <Link href="/dashboard" className="nav-link">Dashboard</Link>
-              <Link href="/diary" className="nav-link">Diário</Link>
-              <Link href="/chat" className="nav-link">Chat</Link>
-              <Link href="/resources" className="nav-link">Recursos</Link>
+          <Link href="/" className="nav-link-cabecalho">Início</Link>
+              <Link href="/dashboard" className="nav-link-cabecalho">Dashboard</Link>
+              <Link href="/diary" className="nav-link-cabecalho">Diário</Link>
+              <Link href="/chat" className="nav-link-cabecalho">Chat</Link>
+              <Link href="/resources" className="nav-link-cabecalho">Recursos</Link>
             </>
           )}
         </nav>
 
         {/* Botões Desktop */}
-        <div className="auth-desktop">
+        <div className="auth-desktop-cabecalho">
           {isAuthenticated ? (
             <>
-              <span className="user-name">{user?.name}</span>
-              <button className="btn-ghost" onClick={logout}>
+              <span className="nome-usuario-cabecalho">{user?.name}</span>
+              <button className="boton-fantaminho-cabecalho" onClick={logout}>
                 <LogOut size={16} />
                 Sair
               </button>
             </>
           ) : (
-            <a className="btn-primary"> 
+            <a className="boton-primario-cabecalho" > 
               Entrar
             </a>
           )}
@@ -53,7 +54,7 @@ export default function Header() {
 
         {/* Botão Mobile */}
         <button
-          className="menu-btn"
+          className="boton-menu-cabecalho"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -62,8 +63,8 @@ export default function Header() {
 
       {/* Menu Mobile */}
       {isMenuOpen && (
-        <div className="nav-mobile">
-          <Link href="/" className="mobile-link">Início</Link>
+        <div className="nav-celular-cabecalho">
+          <Link href="/" className="link-celular-cabecalho">Início</Link>
 
           {isAuthenticated && (
             <>
@@ -74,7 +75,7 @@ export default function Header() {
             </>
           )}
 
-          <div className="mobile-footer">
+          <div className="rodape-celular">
             {isAuthenticated ? (
               <button className="btn-ghost full" onClick={logout}>
                 <LogOut size={16} />
