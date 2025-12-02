@@ -1,0 +1,148 @@
+/* ----- FOOTER ----- */
+
+.footer {
+  background: #f9fafb;
+  padding: 60px 20px 40px 20px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.footer-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Brand */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  background: #16a34a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.footer-description {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* Section titles */
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* Lists */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  color: #6b7280;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 6px 0;
+  transition: 0.2s;
+}
+
+.footer-link:hover {
+  color: #16a34a;
+}
+
+/* Contact */
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.footer-icon {
+  color: #16a34a;
+}
+
+/* Bottom */
+.footer-divider {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+  padding-top: 25px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.footer-copy {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-love {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.footer-heart-icon {
+  color: #ef4444;
+}
