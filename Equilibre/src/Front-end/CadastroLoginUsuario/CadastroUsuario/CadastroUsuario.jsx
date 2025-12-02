@@ -1,5 +1,5 @@
 import React from 'react'
-import './cadastroUsuario.css'
+import './CadastroUsuario.css'
 function CadastroUsuario() {
   return (
     <div className='div-1'>

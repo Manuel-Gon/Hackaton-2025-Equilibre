@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import useAuth from "../../hooks/useAuth.js";
-// import { trpc } from "@/lib/trpc";
-import { useLocation } from "wouter";
-// import { toast } from "sonner";
-
-// Importe o CSS que criamos (ajuste o caminho conforme necessário)
+// Importa o arquivo CSS (certifique-se que está na mesma pasta)
 import "./Diario.css";
 
 const MOODS = [
@@ -16,97 +11,115 @@ const MOODS = [
   { emoji: "😐", label: "Neutro", value: "neutral", color: "#6B7280" },
 ];
 
-export default function Diario() {
-  const { user } = useAuth();
-  const [, navigate] = useLocation();
+export default function Diary() {
+  // --- Estados do Formulário ---
   const [selectedMood, setSelectedMood] = useState(null);
   const [notes, setNotes] = useState("");
   const [intensity, setIntensity] = useState(5);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Redireciona se não estiver autenticado
-  if (!user) {
-    navigate("/");
-    return null;
-  }
-
-  const utils = trpc.useUtils();
-
-  const createEntryMutation = trpc.diary.createEntry.useMutation({
-    onSuccess: () => {
-      toast.success("Registro de humor salvo com sucesso!");
-      setSelectedMood(null);
-      setNotes("");
-      setIntensity(5);
-      // Atualiza a lista recente
-      utils.diary.getRecent.invalidate();
+  // --- Mock de Dados (Simulando o Banco de Dados) ---
+  const [recentEntries, setRecentEntries] = useState([
+    {
+      id: 1,
+      mood: "happy",
+      moodColor: "#10B981",
+      intensity: 8,
+      notes: "Testando o visual da aplicação!",
+      createdAt: new Date().toISOString(),
     },
-    onError: () => {
-      toast.error("Erro ao salvar o registro. Tente novamente.");
-    },
-  });
+    {
+      id: 2,
+      mood: "neutral",
+      moodColor: "#6B7280",
+      intensity: 5,
+      notes: "Apenas um dia comum de testes.",
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+    }
+  ]);
 
-  const { data: recentEntries, isLoading } = trpc.diary.getRecent.useQuery({ limit: 10 });
-
+  // --- Função de Salvar (Simulada) ---
   const handleSubmit = () => {
+    // Validação
     if (!selectedMood) {
-      toast.error("Selecione um humor antes de salvar");
+      alert("Por favor, selecione um humor.");
       return;
     }
 
     const moodData = MOODS.find((m) => m.value === selectedMood);
     if (!moodData) return;
 
-    createEntryMutation.mutate({
-      mood: selectedMood,
-      moodColor: moodData.color,
-      notes: notes || undefined,
-      intensity,
-    });
+    // Ativa loading falso
+    setIsSubmitting(true);
+
+    // Espera 0.8 segundos para parecer real
+    setTimeout(() => {
+      const newEntry = {
+        id: Date.now(),
+        mood: selectedMood,
+        moodColor: moodData.color,
+        notes: notes,
+        intensity: intensity,
+        createdAt: new Date().toISOString(),
+      };
+
+      // Atualiza a lista
+      setRecentEntries([newEntry, ...recentEntries]);
+      
+      // Feedback e Limpeza
+      alert("Registro salvo com sucesso! (Simulação)");
+      setSelectedMood(null);
+      setNotes("");
+      setIntensity(5);
+      setIsSubmitting(false);
+    }, 800);
   };
 
   const selectedMoodData = MOODS.find((m) => m.value === selectedMood);
-  // Fundo dinâmico com opacidade
+  // Calcula cor de fundo com 20% de opacidade (hex 33)
   const backgroundColor = selectedMoodData ? selectedMoodData.color : "#FFFFFF";
 
   return (
     <div
-      className="diary-wrapper"
-      style={{ backgroundColor: `${backgroundColor}20` }} // 20 é hex para opacidade baixa
+      className="pagina-diario"
+      style={{ backgroundColor: `${backgroundColor}33` }}
     >
       <div className="container">
-        <h1 className="page-title">Diário Emocional</h1>
-        <p className="page-subtitle">
-          Registre seu humor e acompanhe suas emoções ao longo do tempo.
+        <h1 className="titulo-principal">Diário Emocional (Modo Teste)</h1>
+        <p className="subtitulo">
+          Registre seu humor e acompanhe suas emoções (Interface Mockada).
         </p>
 
-        <div className="main-grid">
-          {/* Formulário de Entrada */}
-          <div className="form-section">
-            <div className="card">
-              <h2 className="section-title">Como você está se sentindo?</h2>
+        <div className="grid-layout">
+          {/* Coluna da Esquerda: Formulário */}
+          <div>
+            <div className="cartao">
+              <h2 className="titulo-card">Como você está se sentindo?</h2>
 
-              {/* Seleção de Humor */}
-              <div className="input-group">
+              {/* Grid de Emojis */}
+              <div style={{ marginBottom: "2rem" }}>
                 <p className="label">Selecione seu humor:</p>
-                <div className="mood-grid">
+                <div className="grid-emojis">
                   {MOODS.map((mood) => (
                     <button
                       key={mood.value}
                       onClick={() => setSelectedMood(mood.value)}
-                      type="button"
-                      className={`mood-button ${
-                        selectedMood === mood.value ? "active" : ""
+                      className={`btn-humor ${
+                        selectedMood === mood.value ? "selecionado" : ""
                       }`}
+                      type="button"
                     >
-                      <div className="mood-emoji">{mood.emoji}</div>
-                      <div className="mood-label">{mood.label}</div>
+                      <div className="emoji-icone">{mood.emoji}</div>
+                      <div className="label" style={{ marginBottom: 0 }}>
+                        {mood.label}
+                      </div>
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Slider de Intensidade */}
-              <div className="input-group">
+              {/* Slider */}
+              <div style={{ marginBottom: "2rem" }}>
                 <label className="label">
                   Intensidade: {intensity}/10
                 </label>
@@ -116,75 +129,70 @@ export default function Diario() {
                   max="10"
                   value={intensity}
                   onChange={(e) => setIntensity(Number(e.target.value))}
-                  className="input-range"
+                  className="input-slider"
                 />
               </div>
 
-              {/* Notas */}
-              <div className="input-group">
+              {/* Textarea */}
+              <div style={{ marginBottom: "1.5rem" }}>
                 <label className="label">
                   Notas (opcional)
                 </label>
                 <textarea
-                  placeholder="Escreva como você se sente, o que aconteceu hoje..."
+                  placeholder="Escreva como você se sente..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="textarea"
+                  className="input-textarea"
                 />
               </div>
 
-              {/* Botão de Envio */}
+              {/* Botão de Salvar */}
               <button
                 onClick={handleSubmit}
-                disabled={!selectedMood || createEntryMutation.isPending}
-                className="btn-primary"
+                disabled={!selectedMood || isSubmitting}
+                className="btn-primario"
               >
-                {createEntryMutation.isPending ? "Salvando..." : "Salvar Registro"}
+                {isSubmitting ? "Salvando..." : "Salvar Registro"}
               </button>
             </div>
           </div>
 
-          {/* Histórico Recente */}
-          <div className="history-section">
-            <div className="card">
-              <h2 className="section-title">Histórico Recente</h2>
+          {/* Coluna da Direita: Histórico */}
+          <div>
+            <div className="cartao">
+              <h2 className="titulo-historico">Histórico Recente</h2>
 
-              {isLoading ? (
-                <div className="history-list">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="loading-skeleton" />
-                  ))}
-                </div>
-              ) : recentEntries && recentEntries.length > 0 ? (
-                <div className="history-list">
-                  {recentEntries.map((entry) => (
+              <div className="lista-historico">
+                {recentEntries.length > 0 ? (
+                  recentEntries.map((entry) => (
                     <div
                       key={entry.id}
-                      className="history-item"
+                      className="item-historico"
                       style={{ borderLeft: `4px solid ${entry.moodColor}` }}
                     >
-                      <div className="history-header">
-                        <span className="history-mood-name">
-                          {entry.mood}
+                      <div className="historico-topo">
+                        <span style={{ fontWeight: 600, textTransform: "capitalize", fontSize: "0.875rem" }}>
+                           {/* Encontra o Label correto ou usa o valor cru */}
+                           {MOODS.find(m => m.value === entry.mood)?.label || entry.mood}
                         </span>
-                        <span className="history-date">
+                        <span className="texto-pequeno">
                           {new Date(entry.createdAt).toLocaleDateString("pt-BR")}
                         </span>
                       </div>
-                      <div className="history-intensity">
+                      <div className="texto-pequeno">
                         Intensidade: {entry.intensity}/10
                       </div>
                       {entry.notes && (
-                        <p className="history-notes">
+                        <p className="texto-pequeno" style={{ marginTop: "0.5rem" }}>
                           {entry.notes}
                         </p>
                       )}
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="history-date">Nenhum registro ainda.</p>
-              )}
+                  ))
+                ) : (
+                  <p className="texto-pequeno">Nenhum registro ainda.</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
