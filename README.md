@@ -9,16 +9,19 @@
 
 ---
 
-##Equipe do Projeto
+## Equipe do Projeto
 
-* **Manuel González** (Líder do Projeto, Dev Front-End & Designer) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Manuel-Gon)
+* **Manuel González** (Líder do Projeto, Dev Front-End & Designer)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Manuel-Gon)
 
-* **Fernanda Cardoso** (Dev Front-End & Designer) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FernandaCardoso1602)
+* **Fernanda Cardoso** (Dev Front-End & Designer)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FernandaCardoso1602)
 
-* **Suyane Nogueira** (Dev Back-End & Designer) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SuyaneNogueira)
+* **Suyane Nogueira** (Dev Back-End & Designer)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SuyaneNogueira)
 
-* **Maria Knupp Ratto** (Dev Front-End, Back-End & Designer) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MariaEduardaKnupp)
----
+* **Maria Knupp Ratto** (Dev Front-End, Back-End & Designer)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MariaEduardaKnupp)
 
 ## 📌 Sobre o Projeto
 
@@ -59,12 +62,8 @@ Inicie o servidor:
 ```bash
 npm run dev
 ```
+Caso não seja executado de imediato, terá que instalar as outras bibliotes que aparecerem com os erros 
 
-Build de produção:
-
-```bash
-npm run build
-```
 
 ---
 
