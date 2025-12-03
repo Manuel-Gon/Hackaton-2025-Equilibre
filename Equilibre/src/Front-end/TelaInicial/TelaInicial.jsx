@@ -16,7 +16,9 @@ export default function Home() {
       <section className="sessao-herois">
         <div className="conteudo-herois">
           <div className="logo-herois">
-            <div className="circulo-logo">E</div>
+            <div className="circulo-logo">
+              <img src="" alt="" />
+            </div>
           </div>
 
           <h1 className="titulo-herois">Encontre o seu Equilíbrio</h1>

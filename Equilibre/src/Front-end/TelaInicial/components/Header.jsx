@@ -16,7 +16,9 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className="logo-cabecalho">
-          <div className="logo-circulo-cabecalho">E</div>
+          <div className="logo-circulo-cabecalho">
+            <img className="imagem-logo-real" src="Equilibre.png" alt="" />
+          </div>
           <span className="texto-logo-cabecalho">Equilibre</span>
         </Link>
 
