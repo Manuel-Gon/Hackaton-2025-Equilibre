@@ -1,0 +1,200 @@
+/* --- Variáveis (Necessário para as cores funcionarem) --- */
+:root {
+  --background: #ffffff;
+  --foreground: #020817;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --radius: 0.5rem;
+}
+
+/* --- Layout Principal --- */
+.pagina-diario {
+  min-height: 100vh;
+  transition: background-color 0.5s ease;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--foreground);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* --- Tipografia --- */
+.titulo-principal {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.titulo-card {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.titulo-historico {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* --- Grid (Layout Responsivo) --- */
+.grid-layout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* --- Componentes UI --- */
+.cartao {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.grid-emojis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.btn-humor {
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-humor:hover {
+  border-color: rgba(15, 23, 42, 0.5);
+}
+
+.btn-humor.selecionado {
+  border-color: var(--primary);
+  background-color: rgba(15, 23, 42, 0.1);
+}
+
+.emoji-icone {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-slider {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--border);
+  border-radius: var(--radius);
+  appearance: none;
+  cursor: pointer;
+}
+
+.input-textarea {
+  width: 100%;
+  min-height: 8rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 0.875rem;
+  background-color: transparent;
+  resize: vertical;
+}
+
+.input-textarea:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+.btn-primario {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primario:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-primario:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Lista de Histórico --- */
+.lista-historico {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-historico {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow 0.2s;
+}
+
+.item-historico:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.historico-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.texto-pequeno {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.skeleton {
+  height: 4rem;
+  background-color: var(--muted);
+  border-radius: var(--radius);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}

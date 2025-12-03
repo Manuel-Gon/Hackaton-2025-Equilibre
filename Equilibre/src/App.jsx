@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -60,6 +61,11 @@ const AppContent = () => {
     </div>
   );
 };
+=======
+import { useState } from 'react'
+import './App.css'
+import { Toaster } from "sonner";
+>>>>>>> 1f28945fe16294ea97572874b25e27b5cba1cb9f
 
 function App() {
   return (
