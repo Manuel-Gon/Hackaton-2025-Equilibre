@@ -85,9 +85,9 @@ export default function Diary() {
       style={{ backgroundColor: `${backgroundColor}33` }}
     >
       <div className="container">
-        <h1 className="titulo-principal">Diário Emocional (Modo Teste)</h1>
+        <h1 className="titulo-principal">Diário Emocional </h1>
         <p className="subtitulo">
-          Registre seu humor e acompanhe suas emoções (Interface Mockada).
+          Registre seu humor e acompanhe suas emoções.
         </p>
 
         <div className="grid-layout">

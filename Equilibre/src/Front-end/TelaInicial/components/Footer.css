@@ -85,13 +85,8 @@
   transition: 0.2s;
 }
 
-<<<<<<< HEAD
-.footer-link:hover {
-  color: #6BAF96;
-=======
 .link-rodape:hover {
   color: #16a34a;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Contact */
@@ -102,13 +97,8 @@
   margin: 8px 0;
 }
 
-<<<<<<< HEAD
 .footer-icon {
   color: #6BAF96;
-=======
-.icone-rodape {
-  color: #16a34a;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Bottom */

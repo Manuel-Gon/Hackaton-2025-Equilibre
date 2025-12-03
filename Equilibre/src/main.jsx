@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { Toaster } from "sonner"; // <--- 1. Importe aqui
+import { Toaster } from "sonner"; 
 import Router from "./Front-end/Router/Router"; 
 import "./index.css";
 

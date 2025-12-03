@@ -111,7 +111,7 @@ export default function Home() {
 
         {!isAuthenticated && (
           <div className="features-cta">
-            <a className="btn-primary">
+            <a className="botao-principal">
               Comece sua Jornada Agora <ArrowRight className="icon" />
             </a>
           </div>
@@ -119,7 +119,9 @@ export default function Home() {
       </section>
 
       {/* CRISIS BUTTON */}
-      <button className="botao-crise">🆘</button>
+      <button className="botao-crise">🆘
+        
+      </button>
       <Footer/>
     </div>
   );
