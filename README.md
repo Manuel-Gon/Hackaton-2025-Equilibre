@@ -64,7 +64,8 @@ O objetivo do projeto é mostrar como tecnologia pode trazer conforto imediato, 
 ---
 
 
-![GIF relaxante]([https://github.com/user/repo/assets/123456789/lofi.gif](https://github.com/Manuel-Gon/Hackaton-2025-Equilibre/issues/1#issue-3690070414))
+
+ ![Image](https://github.com/user-attachments/assets/b7955ae4-0c0c-48b3-8bf3-23f511e5a936)
 
 
 
