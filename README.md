@@ -1,19 +1,14 @@
 # 🌐 Equilibre — Plataforma de Apoio à Saúde Mental
 
-![React](https://img.shields.io/badge/React-18.0-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-✓-946CF2?logo=vite)
-![Wouter](https://img.shields.io/badge/Router-Wouter-lightgrey)
-![React Router](https://img.shields.io/badge/Router-React_Router_DOM-red?logo=reactrouter)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 ---
 
 ## 📌 Sobre o Projeto
 
-Equilibre é um projeto criado com o intuito de oferecer uma **plataforma simples, rápida e acessível** de apoio à saúde mental.
+Equilibre foi criado com o intuito de **ajudar pessoas que enfrentam crises de ansiedade, estresse ou sobrecarga emocional**, oferecendo apoio simples, rápido e acessível.
 
-Desenvolvido para hackatons, demonstrações e validações de ideia, ele apresenta uma interface limpa e objetiva, permitindo navegação leve e recursos essenciais para bem-estar emocional.
+Este projeto foi desenvolvido para um **hackathon**, com o objetivo de **testar nossas habilidades, competências e capacidade de entregar algo funcional em pouco tempo**.
+
+Ele **não estará perfeito**, mas colocamos nosso esforço e dedicação para entregar a melhor versão possível dentro do prazo.
 
 Principais objetivos:
 
@@ -21,8 +16,6 @@ Principais objetivos:
 * Navegação fluida com Wouter
 * Suporte a navegação programática com React Router DOM
 * Estrutura simples e escalável
-
----
 
 ## 🧰 Tecnologias Utilizadas
 
@@ -35,10 +28,31 @@ Principais objetivos:
 
 ---
 
+## ▶️ Como Executar
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor:
+
+```bash
+npm run dev
+```
+
+Build de produção:
+
+```bash
+npm run build
+```
+
+---
 
 ## 🚀 Objetivo
 
-Este projeto foi criado como forma para aprendermos mais, melhoramos nas nossas competencias e testar nossas habilidades, este projeto e so para fins didadicos.
+O objetivo do projeto é mostrar como tecnologia pode trazer conforto imediato, mesmo em soluções pequenas e feitas em pouco tempo — como em um hackathon.
 
 ---
 
