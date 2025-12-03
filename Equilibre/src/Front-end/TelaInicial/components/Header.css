@@ -58,13 +58,8 @@
   transition: 0.2s;
 }
 
-<<<<<<< HEAD
-.nav-link:hover {
-  color: #6BAF96;
-=======
 .nav-link-cabecalho:hover {
   color: #16a34a;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Desktop Auth */
@@ -97,13 +92,8 @@
   background: #fee2e2;
 }
 
-<<<<<<< HEAD
-.btn-primary {
-  background: #6BAF96;
-=======
 .boton-primario-cabecalho {
-  background: #16a34a;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
+  background: #6BAF96;
   color: white;
   padding: 8px 20px;
   border-radius: 6px;
@@ -117,13 +107,8 @@
   /* width: 50%; */
 }
 
-<<<<<<< HEAD
-.btn-primary:hover {
-  background: #6BAF96;
-=======
 .boton-primario-cabecalho:hover {
   background: #128c3f;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 /* Mobile Button */
@@ -155,13 +140,8 @@
   transition: 0.2s;
 }
 
-<<<<<<< HEAD
-.mobile-link:hover {
-  color: #1B4332;
-=======
 .link-celular-cabecalho:hover {
   color: #16a34a;
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
 }
 
 .rodape-celular {

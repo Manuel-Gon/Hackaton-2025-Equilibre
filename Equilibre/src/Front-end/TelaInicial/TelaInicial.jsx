@@ -21,13 +21,8 @@ export default function Home() {
 
           <h1 className="titulo-herois">Encontre o seu Equilíbrio</h1>
 
-<<<<<<< HEAD
-          <p className="hero-subtitle">
-            Seu espaço seguro com recursos e técnicas de saúde mental. <br />
-=======
           <p className="subtitulo-herois">
             Seu espaço seguro para apoio, recursos e técnicas de saúde mental.
->>>>>>> 90db31584331659c7593a0563a206d91ad10a5b1
             Cuide de você com compaixão e sem julgamentos.
           </p>
 
@@ -116,7 +111,7 @@ export default function Home() {
 
         {!isAuthenticated && (
           <div className="features-cta">
-            <a className="btn-primary">
+            <a className="botao-principal">
               Comece sua Jornada Agora <ArrowRight className="icon" />
             </a>
           </div>
@@ -124,7 +119,9 @@ export default function Home() {
       </section>
 
       {/* CRISIS BUTTON */}
-      <button className="botao-crise">🆘</button>
+      <button className="botao-crise">🆘
+        
+      </button>
       <Footer/>
     </div>
   );

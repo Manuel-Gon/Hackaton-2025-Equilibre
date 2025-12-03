@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { Link } from "react-router-dom";   
 import useAuth from "../../../hooks/useAuth";
 // import { getLoginUrl } from "@/const"
 import { LogOut, Menu, X } from "lucide-react";
@@ -45,7 +46,7 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <Link to="/CadastroUsuario" className="boton-primario-cabecalho"> 
+            <Link href="/CadastroUsuario" className="boton-primario-cabecalho"> 
               Entrar
             </Link>
             ) }
