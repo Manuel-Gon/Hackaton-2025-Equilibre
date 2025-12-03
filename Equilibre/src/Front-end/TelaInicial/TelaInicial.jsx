@@ -1,4 +1,4 @@
-import useAuth from "../../hooks/useAuth.js";
+import { useState } from "react";
 // import { getLoginUrl } from "@/const";
 import { ArrowRight, Heart, Lightbulb, Users } from "lucide-react";
 import { Link } from "wouter";
@@ -7,11 +7,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 export default function Home() {
-  const { isAuthenticated } = useAuth();
+  const { isStauseStateenticated } = useState();
 
   return (
     <div className="container-tela-inicial">
-      <Header/>
       {/* HERO */}
       <section className="sessao-herois">
         <div className="conteudo-herois">
@@ -27,7 +26,7 @@ export default function Home() {
           </p>
 
           <div className="botoes-herois">
-            {isAuthenticated ? (
+            {isStauseStateenticated ? (
               <>
                 <Link href="/dashboard" className="botao-principal">
                   Ir para Dashboard <ArrowRight className="icon" />
@@ -109,7 +108,7 @@ export default function Home() {
           </div>
         </div>
 
-        {!isAuthenticated && (
+        {!isStauseStateenticated && (
           <div className="features-cta">
             <a className="botao-principal">
               Comece sua Jornada Agora <ArrowRight className="icon" />

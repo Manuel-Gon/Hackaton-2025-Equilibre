@@ -14,15 +14,13 @@ export default function Header() {
     <header className="cabecalho">
       <div className="container-cabecalho">
 
-        {/* Logo */}
+        
         <Link href="/" className="logo-cabecalho">
           <div className="logo-circulo-cabecalho">E</div>
           <span className="texto-logo-cabecalho">Equilibre</span>
         </Link>
 
-        {/* Menu Desktop */}
         <nav className="nav-desktop-cabecalho">
-          <Link href="/" className="nav-link-cabecalho">Início</Link>
 
           {isAuthenticated && (
             <>
@@ -35,7 +33,7 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Botões Desktop */}
+ 
         <div className="auth-desktop-cabecalho">
           {isAuthenticated ? (
             <>
@@ -54,7 +52,7 @@ export default function Header() {
         </div>
 
 
-        {/* Botão Mobile */}
+        
         <button
           className="boton-menu-cabecalho"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -84,9 +82,9 @@ export default function Header() {
                 Sair
               </button>
             ) : (
-              <a className="btn-primary full" >
+              <Link to="/LoginUsuario" className="btn-primary full" >
                 Entrar
-              </a>
+              </Link>
             )}
           </div>
         </div>

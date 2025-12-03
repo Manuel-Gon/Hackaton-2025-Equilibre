@@ -1,23 +1,23 @@
-// src/_core/hooks/useAuth.js
+// src/_core/hooks/useState.js
 import { useState, useEffect } from "react";
 
-export default function useAuth() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+export default function useState() {
+  const [isStauseStateenticated, setIsStauseStateenticated] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("auth");
-    if (saved === "true") setIsAuthenticated(true);
+    const saved = localStorage.getItem("StauseState");
+    if (saved === "true") setIsStauseStateenticated(true);
   }, []);
 
   function login() {
-    setIsAuthenticated(true);
-    localStorage.setItem("auth", "true");
+    setIsStauseStateenticated(true);
+    localStorage.setItem("StauseState", "true");
   }
 
   function logout() {
-    setIsAuthenticated(false);
-    localStorage.removeItem("auth");
+    setIsStauseStateenticated(false);
+    localStorage.removeItem("StauseState");
   }
 
-  return { isAuthenticated, login, logout };
+  return { isStauseStateenticated, login, logout };
 }
