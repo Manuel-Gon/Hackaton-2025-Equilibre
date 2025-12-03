@@ -11,18 +11,12 @@
 
 ## Equipe do Projeto
 
-* **Manuel González** (Líder do Projeto, Dev Front-End & Designer)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Manuel-Gon)
-
-* **Fernanda Cardoso** (Dev Front-End & Designer)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FernandaCardoso1602)
-
-* **Suyane Nogueira** (Dev Back-End & Designer)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SuyaneNogueira)
-
-* **Maria Knupp Ratto** (Dev Front-End, Back-End & Designer)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MariaEduardaKnupp)
-
+| Membro | Função | GitHub |
+| :--- | :--- | :---: |
+| **Manuel González** | Líder, Dev Front-End & Designer | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Manuel-Gon) |
+| **Fernanda Cardoso** | Dev Front-End & Designer | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FernandaCardoso1602) |
+| **Suyane Nogueira** | Dev Back-End & Designer | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SuyaneNogueira) |
+| **Maria Knupp Ratto** | Dev Full-Stack & Designer | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MariaEduardaKnupp) |
 ## 📌 Sobre o Projeto
 
 Equilibre foi criado com o intuito de **ajudar pessoas que enfrentam crises de ansiedade, estresse ou sobrecarga emocional**, oferecendo apoio simples, rápido e acessível.
