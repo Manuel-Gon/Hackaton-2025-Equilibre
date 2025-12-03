@@ -1,17 +1,17 @@
 import useAuth from "../../hooks/useAuth.js";
-// import { getLoginUrl } from "@/const";
 import { ArrowRight, Heart, Lightbulb, Users } from "lucide-react";
 import { Link } from "wouter";
 import "./TelaInicial.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-export default function Home() {
+export default function TelaInicial() {
   const { isAuthenticated } = useAuth();
 
   return (
     <div className="container-tela-inicial">
-      <Header/>
+      <Header />
+
       {/* HERO */}
       <section className="sessao-herois">
         <div className="conteudo-herois">
@@ -41,9 +41,10 @@ export default function Home() {
               </>
             ) : (
               <>
-                <a className="botao-principal">
+                {/* Redireciona para tela de login local */}
+                <Link href="/login" className="botao-principal">
                   Começar Agora <ArrowRight className="icon" />
-                </a>
+                </Link>
 
                 <a href="#features" className="botao-dois-titulo">
                   Conhecer Mais
@@ -113,19 +114,17 @@ export default function Home() {
 
         {!isAuthenticated && (
           <div className="features-cta">
-            <a className="botao-principal">
+            <Link href="/login" className="botao-principal">
               Comece sua Jornada Agora <ArrowRight className="icon" />
-            </a>
+            </Link>
           </div>
         )}
       </section>
 
       {/* CRISIS BUTTON */}
-      <button className="botao-crise">🆘
-        
-      </button>
-      <Footer/>
+      <button className="botao-crise">🆘</button>
+
+      <Footer />
     </div>
   );
 }
-//href={getLoginUrl()}

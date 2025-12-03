@@ -1,21 +1,40 @@
-import { useState } from "react";
-// import { Link } from "react-router-dom";   
-import useAuth from "../../../hooks/useAuth";
-// import { getLoginUrl } from "@/const"
+import { useState, useEffect } from "react";
 import { LogOut, Menu, X } from "lucide-react";
-import { Link } from "wouter";
-import "./Header.css"; 
+import { Link } from "react-router-dom"; // ✅ AQUI MUDA
+import "./Header.css";
 
 export default function Header() {
-  const { user, logout, isAuthenticated } = useAuth();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Carrega dados do localStorage ao iniciar
+  useEffect(() => {
+    const auth = localStorage.getItem("auth");
+    const savedUser = localStorage.getItem("user");
+
+    if (auth === "true") {
+      setIsAuthenticated(true);
+    }
+
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+  function logout() {
+    localStorage.removeItem("auth");
+    localStorage.removeItem("user");
+    setIsAuthenticated(false);
+    setUser(null);
+  }
 
   return (
     <header className="cabecalho">
       <div className="container-cabecalho">
 
         {/* Logo */}
-        <Link href="/" className="logo-cabecalho">
+        <Link to="/" className="logo-cabecalho">
           <div className="logo-circulo-cabecalho">
             <img className="imagem-logo-real" src="Equilibre.png" alt="" />
           </div>
@@ -24,15 +43,13 @@ export default function Header() {
 
         {/* Menu Desktop */}
         <nav className="nav-desktop-cabecalho">
-          <Link href="/" className="nav-link-cabecalho">Início</Link>
+          <Link to="/" className="nav-link-cabecalho">Início</Link>
 
           {isAuthenticated && (
             <>
-          <Link href="/" className="nav-link-cabecalho">Início</Link>
-              <Link href="/dashboard" className="nav-link-cabecalho">Dashboard</Link>
-              <Link href="/diary" className="nav-link-cabecalho">Diário</Link>
-              <Link href="/chat" className="nav-link-cabecalho">Chat</Link>
-              <Link href="/resources" className="nav-link-cabecalho">Recursos</Link>
+              <Link to="/dashboard" className="nav-link-cabecalho">Dashboard</Link>
+              <Link to="/Diario" className="nav-link-cabecalho">Diário</Link>
+              <Link to="/chat" className="nav-link-cabecalho">Chat</Link>
             </>
           )}
         </nav>
@@ -48,13 +65,11 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <Link href="/CadastroUsuario" className="boton-primario-cabecalho"> 
+            <Link to="/CadastroUsuario" className="boton-primario-cabecalho">
               Entrar
             </Link>
-            ) }
-
+          )}
         </div>
-
 
         {/* Botão Mobile */}
         <button
@@ -68,14 +83,13 @@ export default function Header() {
       {/* Menu Mobile */}
       {isMenuOpen && (
         <div className="nav-celular-cabecalho">
-          <Link href="/" className="link-celular-cabecalho">Início</Link>
+          <Link to="/" className="link-celular-cabecalho">Início</Link>
 
           {isAuthenticated && (
             <>
-              <Link href="/dashboard" className="mobile-link">Dashboard</Link>
-              <Link href="/diary" className="mobile-link">Diário</Link>
-              <Link href="/chat" className="mobile-link">Chat</Link>
-              <Link href="/resources" className="mobile-link">Recursos</Link>
+              <Link to="/dashboard" className="mobile-link">Dashboard</Link>
+              <Link to="/Diario" className="mobile-link">Diário</Link>
+              <Link to="/chat" className="mobile-link">Chat</Link>
             </>
           )}
 
@@ -86,9 +100,9 @@ export default function Header() {
                 Sair
               </button>
             ) : (
-              <a className="btn-primary full" >
+              <Link to="/CadastroUsuario" className="btn-primary full">
                 Entrar
-              </a>
+              </Link>
             )}
           </div>
         </div>
@@ -96,5 +110,3 @@ export default function Header() {
     </header>
   );
 }
-
-//href={getLoginUrl()}

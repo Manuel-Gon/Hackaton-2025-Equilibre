@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// Importa o arquivo CSS (certifique-se que está na mesma pasta)
+import React, { useState, useEffect } from "react";
 import "./Diario.css";
 
 const MOODS = [
@@ -11,36 +10,29 @@ const MOODS = [
   { emoji: "😐", label: "Neutro", value: "neutral", color: "#6B7280" },
 ];
 
-export default function Diary() {
-  // --- Estados do Formulário ---
+export default function Diario() {
+  // --- Estados ---
   const [selectedMood, setSelectedMood] = useState(null);
   const [notes, setNotes] = useState("");
   const [intensity, setIntensity] = useState(5);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recentEntries, setRecentEntries] = useState([]);
 
-  // --- Mock de Dados (Simulando o Banco de Dados) ---
-  const [recentEntries, setRecentEntries] = useState([
-    {
-      id: 1,
-      mood: "happy",
-      moodColor: "#10B981",
-      intensity: 8,
-      notes: "Testando o visual da aplicação!",
-      createdAt: new Date().toISOString(),
-    },
-    {
-      id: 2,
-      mood: "neutral",
-      moodColor: "#6B7280",
-      intensity: 5,
-      notes: "Apenas um dia comum de testes.",
-      createdAt: new Date(Date.now() - 86400000).toISOString(),
+  // --- Carrega histórico do localStorage ao iniciar ---
+  useEffect(() => {
+    const savedEntries = localStorage.getItem("diaryEntries");
+    if (savedEntries) {
+      setRecentEntries(JSON.parse(savedEntries));
     }
-  ]);
+  }, []);
 
-  // --- Função de Salvar (Simulada) ---
+  // --- Salva histórico no localStorage sempre que mudar ---
+  useEffect(() => {
+    localStorage.setItem("diaryEntries", JSON.stringify(recentEntries));
+  }, [recentEntries]);
+
+  // --- Função de Salvar ---
   const handleSubmit = () => {
-    // Validação
     if (!selectedMood) {
       alert("Por favor, selecione um humor.");
       return;
@@ -49,34 +41,29 @@ export default function Diary() {
     const moodData = MOODS.find((m) => m.value === selectedMood);
     if (!moodData) return;
 
-    // Ativa loading falso
     setIsSubmitting(true);
 
-    // Espera 0.8 segundos para parecer real
     setTimeout(() => {
       const newEntry = {
         id: Date.now(),
         mood: selectedMood,
         moodColor: moodData.color,
-        notes: notes,
-        intensity: intensity,
+        notes,
+        intensity,
         createdAt: new Date().toISOString(),
       };
 
-      // Atualiza a lista
       setRecentEntries([newEntry, ...recentEntries]);
-      
-      // Feedback e Limpeza
-      alert("Registro salvo com sucesso! (Simulação)");
+
+      alert("Registro salvo com sucesso!");
       setSelectedMood(null);
       setNotes("");
       setIntensity(5);
       setIsSubmitting(false);
-    }, 800);
+    }, 500);
   };
 
   const selectedMoodData = MOODS.find((m) => m.value === selectedMood);
-  // Calcula cor de fundo com 20% de opacidade (hex 33)
   const backgroundColor = selectedMoodData ? selectedMoodData.color : "#FFFFFF";
 
   return (
@@ -85,18 +72,15 @@ export default function Diary() {
       style={{ backgroundColor: `${backgroundColor}33` }}
     >
       <div className="container">
-        <h1 className="titulo-principal">Diário Emocional </h1>
-        <p className="subtitulo">
-          Registre seu humor e acompanhe suas emoções.
-        </p>
+        <h1 className="titulo-principal">Diário Emocional</h1>
+        <p className="subtitulo">Registre seu humor e acompanhe suas emoções.</p>
 
         <div className="grid-layout">
-          {/* Coluna da Esquerda: Formulário */}
+          {/* Coluna Esquerda */}
           <div>
             <div className="cartao">
               <h2 className="titulo-card">Como você está se sentindo?</h2>
 
-              {/* Grid de Emojis */}
               <div style={{ marginBottom: "2rem" }}>
                 <p className="label">Selecione seu humor:</p>
                 <div className="grid-emojis">
@@ -118,11 +102,9 @@ export default function Diary() {
                 </div>
               </div>
 
-              {/* Slider */}
+              {/* Intensidade */}
               <div style={{ marginBottom: "2rem" }}>
-                <label className="label">
-                  Intensidade: {intensity}/10
-                </label>
+                <label className="label">Intensidade: {intensity}/10</label>
                 <input
                   type="range"
                   min="1"
@@ -133,11 +115,9 @@ export default function Diary() {
                 />
               </div>
 
-              {/* Textarea */}
+              {/* Notas */}
               <div style={{ marginBottom: "1.5rem" }}>
-                <label className="label">
-                  Notas (opcional)
-                </label>
+                <label className="label">Notas (opcional)</label>
                 <textarea
                   placeholder="Escreva como você se sente..."
                   value={notes}
@@ -146,7 +126,6 @@ export default function Diary() {
                 />
               </div>
 
-              {/* Botão de Salvar */}
               <button
                 onClick={handleSubmit}
                 disabled={!selectedMood || isSubmitting}
@@ -157,7 +136,7 @@ export default function Diary() {
             </div>
           </div>
 
-          {/* Coluna da Direita: Histórico */}
+          {/* Coluna Direita */}
           <div>
             <div className="cartao">
               <h2 className="titulo-historico">Histórico Recente</h2>
@@ -172,16 +151,17 @@ export default function Diary() {
                     >
                       <div className="historico-topo">
                         <span style={{ fontWeight: 600, textTransform: "capitalize", fontSize: "0.875rem" }}>
-                           {/* Encontra o Label correto ou usa o valor cru */}
-                           {MOODS.find(m => m.value === entry.mood)?.label || entry.mood}
+                          {MOODS.find(m => m.value === entry.mood)?.label || entry.mood}
                         </span>
                         <span className="texto-pequeno">
                           {new Date(entry.createdAt).toLocaleDateString("pt-BR")}
                         </span>
                       </div>
+
                       <div className="texto-pequeno">
                         Intensidade: {entry.intensity}/10
                       </div>
+
                       {entry.notes && (
                         <p className="texto-pequeno" style={{ marginTop: "0.5rem" }}>
                           {entry.notes}

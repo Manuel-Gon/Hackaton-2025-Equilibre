@@ -2,11 +2,23 @@
 import { useState, useEffect } from "react";
 
 export default function useAuth() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
     const saved = localStorage.getItem("auth");
-    if (saved === "true") setIsAuthenticated(true);
+    return saved === "true";
+  });
+
+  // Sincroniza login/logout entre abas do navegador
+  useEffect(() => {
+    function handleStorageChange() {
+      const saved = localStorage.getItem("auth");
+      setIsAuthenticated(saved === "true");
+    }
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   function login() {
