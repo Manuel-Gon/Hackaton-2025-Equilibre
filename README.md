@@ -9,6 +9,18 @@
 
 ---
 
+## 👥 Equipe Responsável
+
+| Nome               | Função                                   | Perfil |
+|--------------------|------------------------------------------|--------|
+| Manuel Gonzalez    | Líder, Dev Front-end & Designer          | [![GitHub](https://img.shields.io/badge/GitHub-Perfil-black?logo=github)](https://github.com/Manuel-Gon) |
+| Maria Knupp        | Dev Full Stack & Designer                | [![GitHub](https://img.shields.io/badge/GitHub-Perfil-black?logo=github)](https://github.com/MariaEduardaKnupp) |
+| Fernanda Cardoso   | Dev Front-End & Designer                 | [![GitHub](https://img.shields.io/badge/GitHub-Perfil-black?logo=github)](https://github.com/FernandaCardoso1602) |
+| Suyane Nogueira    | Dev Back-end & Designer                  | [![GitHub](https://img.shields.io/badge/GitHub-Perfil-black?logo=github)](https://github.com/SuyaneNogueira) |
+
+
+
+
 ## 📌 Sobre o Projeto
 
 Equilibre foi criado com o intuito de **ajudar pessoas que enfrentam crises de ansiedade, estresse ou sobrecarga emocional**, oferecendo apoio simples, rápido e acessível.
@@ -17,21 +29,20 @@ Este projeto foi desenvolvido para um **hackathon**, com o objetivo de **testar 
 
 Ele **não estará perfeito**, mas colocamos nosso esforço e dedicação para entregar a melhor versão possível dentro do prazo.
 
+
 Principais objetivos:
 
 * Interface minimalista e rápida
-* Navegação fluida com Wouter
 * Suporte a navegação programática com React Router DOM
 * Estrutura simples e escalável
 
 ## 🧰 Tecnologias Utilizadas
 
-* **React 18**
+* **React**
 * **Vite**
-* **CSS + shadcn/ui**
+* **CSS **
 * **Lucide React**
-* **Wouter** (rotas principais)
-* **React Router DOM** (navegação programática)
+* **React Router DOM** 
 
 ---
 
@@ -49,12 +60,6 @@ Inicie o servidor:
 npm run dev
 ```
 
-Build de produção:
-
-```bash
-npm run build
-```
-
 ---
 
 ## 🚀 Objetivo
@@ -62,11 +67,11 @@ npm run build
 O objetivo do projeto é mostrar como tecnologia pode trazer conforto imediato, mesmo em soluções pequenas e feitas em pouco tempo — como em um hackathon.
 
 ---
+<div align="center">
 
-
-
- ![Image](https://github.com/user-attachments/assets/b7955ae4-0c0c-48b3-8bf3-23f511e5a936)
-
+  ![Image](https://github.com/user-attachments/assets/b7955ae4-0c0c-48b3-8bf3-23f511e5a936)
+  
+</div>
 
 
 ---
