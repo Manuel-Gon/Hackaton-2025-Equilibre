@@ -2,7 +2,6 @@
 
 ![React](https://img.shields.io/badge/React-18.0-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-✓-946CF2?logo=vite)
-![Wouter](https://img.shields.io/badge/Router-Wouter-lightgrey)
 ![React Router](https://img.shields.io/badge/Router-React_Router_DOM-red?logo=reactrouter)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
