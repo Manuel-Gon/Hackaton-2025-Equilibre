@@ -18,19 +18,19 @@ const LoginUsuario = () => {
 
   // Função de login
   const login = (email, senha) => {
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const foundUser = users.find(u => u.email === email && u.senha === senha);
-    
-    if (foundUser) {
-      // Remover senha antes de salvar no localStorage
-      const userToSave = { ...foundUser, senha: undefined };
-      localStorage.setItem('currentUser', JSON.stringify(userToSave));
-      return { success: true, user: foundUser };
-    } else {
-      return { success: false, error: 'Email ou senha incorretos' };
-    }
-  };
+  const users = JSON.parse(localStorage.getItem('users') || '[]');
+  const foundUser = users.find(u => u.email === email && u.senha === senha);
 
+  if (foundUser) {
+    const userToSave = { ...foundUser };
+    delete userToSave.senha;
+
+    localStorage.setItem('currentUser', JSON.stringify(userToSave)); // ✅ SÓ ISSO
+    return { success: true, user: foundUser };
+  } else {
+    return { success: false, error: 'Email ou senha incorretos' };
+  }
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
     

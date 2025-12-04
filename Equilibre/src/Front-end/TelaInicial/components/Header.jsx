@@ -1,32 +1,28 @@
 import { useState, useEffect } from "react";
 import { LogOut, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom"; 
 import "./Header.css";
 
 export default function Header() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // Carrega dados do localStorage ao iniciar
+  // ✅ Carrega o usuário diretamente do localStorage
   useEffect(() => {
-    const auth = localStorage.getItem("auth");
-    const savedUser = localStorage.getItem("user");
-
-    if (auth === "true") {
-      setIsAuthenticated(true);
-    }
-
+    const savedUser = localStorage.getItem("currentUser");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
+    } else {
+      setUser(null);
     }
   }, []);
 
   function logout() {
-    localStorage.removeItem("auth");
-    localStorage.removeItem("user");
-    setIsAuthenticated(false);
+    localStorage.removeItem("currentUser"); // ✅ Remove apenas isso
     setUser(null);
+    navigate("/");
+    window.location.reload(); // ✅ Atualiza Header automaticamente
   }
 
   return (
@@ -45,7 +41,7 @@ export default function Header() {
         <nav className="nav-desktop-cabecalho">
           <Link to="/" className="nav-link-cabecalho">Início</Link>
 
-          {isAuthenticated && (
+          {user && (
             <>
               <Link to="/dashboard" className="nav-link-cabecalho">Dashboard</Link>
               <Link to="/Diario" className="nav-link-cabecalho">Diário</Link>
@@ -56,9 +52,11 @@ export default function Header() {
 
         {/* Botões Desktop */}
         <div className="auth-desktop-cabecalho">
-          {isAuthenticated ? (
+          {user ? (
             <>
-              <span className="nome-usuario-cabecalho">{user?.name}</span>
+             <span className="nome-usuario-cabecalho">
+  {user?.name || user?.nome || "Usuário"}
+</span>
               <button className="boton-fantaminho-cabecalho" onClick={logout}>
                 <LogOut size={16} />
                 Sair
@@ -85,7 +83,7 @@ export default function Header() {
         <div className="nav-celular-cabecalho">
           <Link to="/" className="link-celular-cabecalho">Início</Link>
 
-          {isAuthenticated && (
+          {user && (
             <>
               <Link to="/dashboard" className="mobile-link">Dashboard</Link>
               <Link to="/Diario" className="mobile-link">Diário</Link>
@@ -94,7 +92,7 @@ export default function Header() {
           )}
 
           <div className="rodape-celular">
-            {isAuthenticated ? (
+            {user ? (
               <button className="btn-ghost full" onClick={logout}>
                 <LogOut size={16} />
                 Sair

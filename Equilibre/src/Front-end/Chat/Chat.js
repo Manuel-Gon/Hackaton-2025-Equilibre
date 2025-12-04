@@ -4,7 +4,6 @@ export const KEYWORDS = {
   happy: ['feliz', 'animado', 'bem', 'ótimo', 'otimo', 'alegre', 'grato']
 };
 
-
 export const KEYWORDS_RISK = [
   'crise',
   'nao aguento',
@@ -22,23 +21,22 @@ export function analyzeTextEmotion(text) {
 
   const t = text.toLowerCase();
 
-
+  // Verificação de RISCO
   const risk = KEYWORDS_RISK.some(k => t.includes(k));
   if (risk) return { emotion: 'neutral', risk: true };
 
- 
-  if (KEYWORDS.anxious.some(k => t.includes(k))) return { emotion: 'anxious', risk: false };
-  if (KEYWORDS.sad.some(k => t.includes(k))) return { emotion: 'sad', risk: false };
-  if (KEYWORDS.happy.some(k => t.includes(k))) return { emotion: 'happy', risk: false };
+  // Verificação de emoções
+  if (KEYWORDS.anxious.some(k => t.includes(k))) {
+    return { emotion: 'anxious', risk: false };
+  }
+
+  if (KEYWORDS.sad.some(k => t.includes(k))) {
+    return { emotion: 'sad', risk: false };
+  }
+
+  if (KEYWORDS.happy.some(k => t.includes(k))) {
+    return { emotion: 'happy', risk: false };
+  }
 
   return { emotion: 'neutral', risk: false };
-}
-
-
-export default function Chat() {
-  return (
-    <div>
-      Chat carregado!
-    </div>
-  );
 }
