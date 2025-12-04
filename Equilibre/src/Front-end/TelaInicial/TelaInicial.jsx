@@ -1,12 +1,12 @@
 import useAuth from "../../hooks/useAuth.js";
 import { ArrowRight, Heart, Lightbulb, Users } from "lucide-react";
-import { Link } from "wouter";
+import { Link } from "react-router-dom"; // ✅ correção aqui
 import "./TelaInicial.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 export default function TelaInicial() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth(); // ✅ continua usando seu hook certinho
 
   return (
     <div className="container-tela-inicial">
@@ -17,7 +17,11 @@ export default function TelaInicial() {
         <div className="conteudo-herois">
           <div className="logo-herois">
             <div className="circulo-logo">
-              <img src="" alt="" />
+              <img
+                className="imagem-real-logo-inicio"
+                src="/logo equlibre.png"
+                alt="Equilibre"
+              />
             </div>
           </div>
 
@@ -31,18 +35,18 @@ export default function TelaInicial() {
           <div className="botoes-herois">
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard" className="botao-principal">
+                <Link to="/dashboard" className="botao-principal">
                   Ir para Dashboard <ArrowRight className="icon" />
                 </Link>
 
-                <Link href="/Diario" className="botao-dois-titulo">
+                <Link to="/diario" className="botao-dois-titulo">
                   Abrir Diário Emocional
                 </Link>
               </>
             ) : (
               <>
-                {/* Redireciona para tela de login local */}
-                <Link href="/login" className="botao-principal">
+                {/* ✅ agora usando Link corretamente */}
+                <Link to="/login" className="botao-principal">
                   Começar Agora <ArrowRight className="icon" />
                 </Link>
 
@@ -114,7 +118,7 @@ export default function TelaInicial() {
 
         {!isAuthenticated && (
           <div className="features-cta">
-            <Link href="/login" className="botao-principal">
+            <Link to="/login" className="botao-principal">
               Comece sua Jornada Agora <ArrowRight className="icon" />
             </Link>
           </div>

@@ -4,6 +4,7 @@ import Chat from "../Chat/Chat.jsx";
 import Diario from "../Diario/Diario";
 import CadastroUsuario from "../CadastroLoginUsuario/CadastroUsuario/CadastroUsuario";
 import LoginUsuario from "../CadastroLoginUsuario/LoginUsuario/LoginUsuario";
+import Dashboard from "../Dashboard/Dashboard.jsx";
 
 
 const Router = createBrowserRouter([
@@ -13,6 +14,8 @@ const Router = createBrowserRouter([
 { path: "/Diario", element: <Diario/> },
 { path: "/CadastroUsuario", element: <CadastroUsuario/> },
 { path: "/LoginUsuario", element: <LoginUsuario/> },
+{ path: "/Dashboard", element: <Dashboard/> },
+
 
 
 ]); 

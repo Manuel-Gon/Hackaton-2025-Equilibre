@@ -1,107 +1,134 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 90, 70, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.modal-container {
-  background: #ffffff;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 18px;
-  padding: 32px;
-  position: relative;
-  animation: fadeIn 0.3s ease;
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes fadeIn {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.modal-circle {
-  width: 56px;
-  height: 56px;
-  background: #6fb49c;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-}
-
-.modal-header h2 {
-  color: #3f8f7b;
-  font-size: 22px;
-  margin-bottom: 8px;
-}
-
-.modal-header p {
-  color: #666;
-  font-size: 14px;
-}
-
-.modal-form {
+/* ===== FUNDO ===== */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f4faf7 100%);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.modal-form label {
-  font-size: 14px;
-  color: #3f8f7b;
-  margin-top: 10px;
+/* ===== TÍTULO ===== */
+.login-container h1 {
+  font-size: 26px;
+  color: #6fb49d;
+  margin-bottom: 20px;
 }
 
-.modal-form input {
+/* ===== CARD DO FORM ===== */
+.login-form {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+/* ===== ERRO ===== */
+.error-message {
+  background: #ffe6e6;
+  color: #c0392b;
   padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #b6dcd0;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ===== CAMPOS ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #2f3e3b;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #dfece7;
   outline: none;
   font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.modal-form input:focus {
-  border-color: #6fb49c;
+.form-group input:focus {
+  border-color: #6fb49d;
+  box-shadow: 0 0 0 2px rgba(111, 180, 157, 0.2);
 }
 
-.modal-btn {
-  margin-top: 20px;
-  padding: 12px;
-  background: #6fb49c;
-  color: white;
+/* ===== BOTÃO ===== */
+.btn-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
   border: none;
-  border-radius: 10px;
-  font-size: 15px;
+  border-radius: 12px;
+  background: #6fb49d;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
-.modal-btn:hover {
-  background: #5aa88f;
+.btn-submit:hover {
+  background: #5aa58c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:disabled {
+  background: #a8d5c5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===== LINK DE CADASTRO ===== */
+.register-link {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+}
+
+.register-link a {
+  color: #6fb49d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 30px 20px;
+  }
+
+  .login-container h1 {
+    font-size: 22px;
+  }
 }

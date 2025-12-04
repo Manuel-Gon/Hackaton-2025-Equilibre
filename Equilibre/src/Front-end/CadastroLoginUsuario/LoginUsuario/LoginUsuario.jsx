@@ -1,79 +1,102 @@
-import { useState } from "react";
-import { X } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import "./LoginUsuario.css";
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import './LoginUsuario.css';
 
-export default function LoginUsuario({ isOpen, onClose }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+const LoginUsuario = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    senha: '',
+  });
+  const [errors, setErrors] = useState({});
 
-  if (!isOpen) return null;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-  function handleLogin(e) {
+  // Função de login
+  const login = (email, senha) => {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const foundUser = users.find(u => u.email === email && u.senha === senha);
+    
+    if (foundUser) {
+      // Remover senha antes de salvar no localStorage
+      const userToSave = { ...foundUser, senha: undefined };
+      localStorage.setItem('currentUser', JSON.stringify(userToSave));
+      return { success: true, user: foundUser };
+    } else {
+      return { success: false, error: 'Email ou senha incorretos' };
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!email || !password) {
-      alert("Preencha todos os campos");
+    
+    if (!formData.email || !formData.senha) {
+      setErrors({ geral: 'Preencha todos os campos' });
       return;
     }
-
-    const fakeUser = {
-      name: email.split("@")[0],
-      email,
-    };
-
-    localStorage.setItem("auth", "true");
-    localStorage.setItem("user", JSON.stringify(fakeUser));
-
-    onClose();       // fecha o modal
-    navigate("/");  // redireciona sem travar
-  }
+    
+    setIsLoading(true);
+    
+    try {
+      const result = login(formData.email, formData.senha);
+      
+      if (result.success) {
+        navigate('/dashboard');
+      } else {
+        setErrors({ geral: result.error });
+      }
+    } catch (error) {
+      setErrors({ geral: 'Erro ao fazer login' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-container">
-        <button className="modal-close" onClick={onClose}>
-          <X size={20} />
-        </button>
-
-        <div className="modal-header">
-          <div className="modal-circle"></div>
-          <h2>Bem-vindo de volta</h2>
-          <p>Entre para continuar cuidando do seu equilíbrio.</p>
-        </div>
-
-        <form className="modal-form" onSubmit={handleLogin}>
+    <div className="login-container">
+      <h1>Entrar</h1>
+      
+      {errors.geral && (
+        <div className="error-message">{errors.geral}</div>
+      )}
+      
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
           <label>Email</label>
           <input
             type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             placeholder="seu@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
           />
-
+        </div>
+        
+        <div className="form-group">
           <label>Senha</label>
           <input
             type="password"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="senha"
+            value={formData.senha}
+            onChange={handleChange}
+            placeholder="Digite sua senha"
           />
-
-          <button type="submit" className="modal-btn">
-            Entrar
-          </button>
-        </form>
-
-        {/* ✅ LINK USANDO react-router-dom */}
-        <p className="modal-footer">
-          Ainda não tem conta?{" "}
-          <Link to="/CadastroUsuario" onClick={onClose}>
-            Criar conta
-          </Link>
-        </p>
-      </div>
+        </div>
+        
+        <button type="submit" disabled={isLoading} className="btn-submit">
+          {isLoading ? 'Entrando...' : 'Entrar'}
+        </button>
+      </form>
+      
+      <p className="register-link">
+        Não tem uma conta? <Link to="/CadastroUsuario">Cadastre-se</Link>
+      </p>
     </div>
   );
-}
+};
+
+export default LoginUsuario;

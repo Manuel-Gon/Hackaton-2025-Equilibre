@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Diario.css";
+import Header from "../TelaInicial/components/Header";
+import Footer from "../TelaInicial/components/Footer";
 
 const MOODS = [
   { emoji: "😊", label: "Feliz", value: "happy", color: "#10B981" },
@@ -71,6 +73,7 @@ export default function Diario() {
       className="pagina-diario"
       style={{ backgroundColor: `${backgroundColor}33` }}
     >
+      <Header/>
       <div className="container">
         <h1 className="titulo-principal">Diário Emocional</h1>
         <p className="subtitulo">Registre seu humor e acompanhe suas emoções.</p>
@@ -177,6 +180,7 @@ export default function Diario() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

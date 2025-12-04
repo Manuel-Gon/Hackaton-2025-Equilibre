@@ -1,21 +1,157 @@
-.div-1{
-    background-color: blueviolet;
+/* ===== FUNDO DA PÁGINA ===== */
+.pagina-cadastro {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f4faf7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.div-2{
-
- background-color: rgb(36, 235, 10);
-
+/* ===== CARD ===== */
+.card-cadastro {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
 }
 
-.div-2-1{
-
-background-color:rgb(43, 92, 226);
-
-
+/* ===== LOGO ===== */
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.logo-real-cadastro{
+     width: 100px;
+    height: 72px;
+}
+.logo-circulo {
+  width: 72px;
+  height: 70px;
+  background: #6fb49d;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.div-2-2{
-background-color: rgb(226, 43, 58);
+.titulo {
+  font-size: 26px;
+  color: #6fb49d;
+  font-weight: bold;
+}
 
+/* ===== TEXTOS ===== */
+.subtitulo {
+  text-align: center;
+  font-size: 22px;
+  color: #2f3e3b;
+  margin-top: 10px;
+}
+
+.descricao {
+  text-align: center;
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-top: 8px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* ===== FORM ===== */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formulario label {
+  font-size: 14px;
+  color: #2f3e3b;
+  margin-top: 10px;
+}
+
+.formulario input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #dfece7;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.formulario input:focus {
+  border-color: #6fb49d;
+  box-shadow: 0 0 0 2px rgba(111, 180, 157, 0.2);
+}
+
+/* ===== BOTÃO ===== */
+.botao-cadastrar {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #6fb49d;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-cadastrar:hover {
+  background: #5aa58c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== TEXTO LOGIN ===== */
+.texto-login {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #444;
+}
+
+.texto-login a {
+  color: #6fb49d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.texto-login a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 480px) {
+  .card-cadastro {
+    padding: 30px 20px;
+  }
+
+  .titulo {
+    font-size: 22px;
+  }
+
+  .subtitulo {
+    font-size: 20px;
+  }
 }

@@ -33,6 +33,11 @@
   font-weight: bold;
 }
 
+.imagem-real-logo-inicio{
+  width: 75px;
+/* height: 47px; */
+}
+
 .titulo-herois{
   font-size: 42px;
   font-weight: bold;

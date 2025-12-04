@@ -15,7 +15,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="marquinha-rodape">
             <div className="footer-logo-area">
-              <div className="logo-rodape">E</div>
+              <div className="logo-rodape">
+                <img className="logo-real-rodape" src="logo equlibre.png" alt="" />
+              </div>
               <span className="titulo-rodape">Equilibre</span>
             </div>
             <p className="descricao-rodape">

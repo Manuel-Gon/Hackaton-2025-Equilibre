@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LogOut, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom"; // ✅ AQUI MUDA
+import { Link } from "react-router-dom"; 
 import "./Header.css";
 
 export default function Header() {
@@ -36,7 +36,7 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className="logo-cabecalho">
           <div className="logo-circulo-cabecalho">
-            <img className="imagem-logo-real" src="Equilibre.png" alt="" />
+            <img className="imagem-logo-real" src="logo equlibre.png" alt="" />
           </div>
           <span className="texto-logo-cabecalho">Equilibre</span>
         </Link>

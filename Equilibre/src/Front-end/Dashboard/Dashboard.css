@@ -1,0 +1,153 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  font-family: "Poppins", Arial, sans-serif;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 42px;
+  color: #16a34a;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dashboard-subtitle {
+  color: #64748b;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+/* ✅ GRID DOS CARDS SUPERIORES */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 70px;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 35px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-label {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 42px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+/* ✅ CONTEÚDO PRINCIPAL */
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ ATIVIDADE RECENTE */
+.dashboard-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.dashboard-box h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+/* ✅ ITEM DO HISTÓRICO */
+.recent-item {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.recent-item strong {
+  display: block;
+  font-size: 16px;
+  color: #111827;
+}
+
+.recent-item p {
+  margin: 6px 0;
+  color: #374151;
+  font-size: 14px;
+}
+
+.recent-item small {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ✅ LINK VER TODOS */
+.link-ver-todos {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.link-ver-todos:hover {
+  text-decoration: underline;
+}
+
+/* ✅ AÇÕES RÁPIDAS */
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 260px;
+}
+
+.dashboard-btn {
+  background: #16a34a;
+  color: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.dashboard-btn:hover {
+  background: #15803d;
+}
+
+.dashboard-btn.secondary {
+  background: #ffffff;
+  color: #16a34a;
+  border: 2px solid #16a34a;
+}
+
+.dashboard-btn.secondary:hover {
+  background: #16a34a;
+  color: #ffffff;
+}
