@@ -155,7 +155,11 @@
 
 .emoji-btn img,
 .send-btn{
+<<<<<<< HEAD
   width:240px;
+=======
+  width:40px;
+>>>>>>> 5957f426dabea4a2efd499baee321118d9ad2b18
 }
 
 /* ================= FOOTER CARDS ================== */

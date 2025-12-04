@@ -181,7 +181,7 @@ export default function Chat() {
         />
 
         <button className="send-button" onClick={sendMessage}>
-          <img className="send-btn" src="/EnvioChat.png" alt="enviar" />
+          <img className="send-btn" src="/EnviaChat.png" alt="enviar" />
         </button>
       </div>
 

@@ -25,7 +25,7 @@ export default function TelaInicial() {
             </div>
           </div>
 
-          <h1 className="titulo-herois">Encontre o seu Equilíbrio</h1>
+          <h1 className="titulo-herois">Encontre o seu Equilibrio</h1>
 
           <p className="subtitulo-herois">
             Seu espaço seguro para apoio, recursos e técnicas de saúde mental.
