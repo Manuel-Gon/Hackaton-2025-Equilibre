@@ -27,59 +27,111 @@ export default function Chat() {
 
   // 🔹 CARREGA USUÁRIO LOGADO
   useEffect(() => {
-  const savedUser = localStorage.getItem("user");
-  const auth = localStorage.getItem("auth");
+    const savedUser = localStorage.getItem("user");
+    const auth = localStorage.getItem("auth");
 
-  if (savedUser && auth === "true") {
-    setUser(JSON.parse(savedUser));
-  } else {
-    setUser(null);
-  }
-}, []);
+    if (savedUser && auth === "true") {
+      setUser(JSON.parse(savedUser));
+    } else {
+      setUser(null);
+    }
+  }, []);
 
   // 🔹 AUTO SCROLL
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-function sendMessage() {
-  if (!input.trim()) return;
+  // 🔹 ENVIO DE MENSAGEM
+  const sendMessage = () => {
+    if (!input.trim()) return;
 
-  const analysis = analyzeTextEmotion(input);
+    const analysis = analyzeTextEmotion(input);
 
-  // Mostra alerta se houver risco
-  if (analysis.risk) {
-    alert("Percebi que você pode estar em sofrimento. Você não está sozinho. Se puder, procure ajuda profissional.");
-  }
+    if (analysis.risk) {
+      alert(
+        "Percebi que você pode estar em sofrimento. Você não está sozinho. Se puder, procure ajuda profissional."
+      );
+    }
 
-  setMessages(prev => [
-    ...prev,
-    {
+    const userMessage = {
       id: uid(),
       author: "user",
       text: input,
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       emotion: analysis.emotion
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+
+    // Limpa input antes de chamar a IA
+    const messageToSend = input;
+    setInput("");
+
+    // Chama a IA de forma assíncrona
+    handleBotResponse(messageToSend);
+  };
+
+  // 🔹 CHAMADA ASSÍNCRONA PARA IA
+  const handleBotResponse = async (message) => {
+    // Adiciona "digitando..." na tela
+    const typingId = uid();
+    setMessages(prev => [
+      ...prev,
+      {
+        id: typingId,
+        author: "bot",
+        text: "Digitando...",
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        loading: true
+      }
+    ]);
+
+    try {
+      const response = await fetch("http://localhost:3001/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+
+      // Substitui a mensagem "digitando..." pela resposta real
+      setMessages(prev =>
+        prev.map(msg =>
+          msg.id === typingId
+            ? { id: uid(), author: "bot", text: data.reply, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }
+            : msg
+        )
+      );
+    } catch (error) {
+      console.error("Erro ao falar com a IA:", error);
+
+      setMessages(prev =>
+        prev.map(msg =>
+          msg.id === typingId
+            ? { id: uid(), author: "bot", text: "⚠️ Desculpe, não consegui responder agora.", time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }
+            : msg
+        )
+      );
     }
-  ]);
+  };
 
-  setInput("");
-}
-
-  function addEmoji(e) {
+  // 🔹 EMOJI
+  const addEmoji = (e) => {
     setInput(prev => prev + e.emoji);
-  }
+  };
 
-  function logout() {
-  localStorage.removeItem("user");
-  localStorage.removeItem("auth");
-  navigate("/LoginUsuario");
-}
+  // 🔹 LOGOUT
+  const logout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("auth");
+    navigate("/LoginUsuario");
+  };
 
   return (
     <div className="chat-container">
-
-      {/* 🔹 HEADER DO CHAT INTEGRADO AO SISTEMA */}
+      {/* HEADER */}
       <header className="chat-header">
         <div className="logo-area">
           <img className="logo-png-chat" src="/logo equlibre.png" alt="Equilibre" />
@@ -89,17 +141,11 @@ function sendMessage() {
         <div className="user-area-chat">
           {user ? (
             <>
-              <span className="nome-user-chat">
-                {user.name || user.nome || "Usuário"}
-              </span>
-              <button className="btn-sair-chat" onClick={logout}>
-                Sair
-              </button>
+              <span className="nome-user-chat">{user.name || user.nome || "Usuário"}</span>
+              <button className="btn-sair-chat" onClick={logout}>Sair</button>
             </>
           ) : (
-            <button className="btn-enter" onClick={() => navigate("/LoginUsuario")}>
-              Entrar
-            </button>
+            <button className="btn-enter" onClick={() => navigate("/LoginUsuario")}>Entrar</button>
           )}
         </div>
       </header>
@@ -107,10 +153,7 @@ function sendMessage() {
       {/* CHAT */}
       <main className="chat-box">
         {messages.map(msg => (
-          <div
-            key={msg.id}
-            className={`message ${msg.author === "user" ? "sent" : "received"}`}
-          >
+          <div key={msg.id} className={`message ${msg.author === "user" ? "sent" : "received"}`}>
             <p>{msg.text}</p>
           </div>
         ))}
@@ -153,7 +196,6 @@ function sendMessage() {
           <p>Sem julgamentos. Diga como se sente e receba apoio.</p>
         </div>
       </footer>
-
     </div>
   );
 }

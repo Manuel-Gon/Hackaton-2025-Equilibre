@@ -4,12 +4,12 @@ import Header from "../TelaInicial/components/Header";
 import Footer from "../TelaInicial/components/Footer";
 
 const MOODS = [
-  { emoji: "😊", label: "Feliz", value: "happy", color: "#10B981" },
-  { emoji: "😢", label: "Triste", value: "sad", color: "#3B82F6" },
-  { emoji: "😰", label: "Ansioso", value: "anxious", color: "#F59E0B" },
-  { emoji: "😌", label: "Calmo", value: "calm", color: "#8B5CF6" },
-  { emoji: "😠", label: "Irritado", value: "angry", color: "#EF4444" },
-  { emoji: "😐", label: "Neutro", value: "neutral", color: "#6B7280" },
+  { emoji: "😊", label: "Feliz", value: "Feliz", color: "#10B981" },
+  { emoji: "😢", label: "Triste", value: "Triste", color: "#3B82F6" },
+  { emoji: "😰", label: "Ansioso", value: "Ansioso", color: "#F59E0B" },
+  { emoji: "😌", label: "Calmo", value: "Calmo", color: "#8B5CF6" },
+  { emoji: "😠", label: "Irritado", value: "Irritado", color: "#EF4444" },
+  { emoji: "😐", label: "Neutro", value: "Neutro", color: "#6B7280" },
 ];
 
 export default function Diario() {

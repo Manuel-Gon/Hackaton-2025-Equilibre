@@ -46,7 +46,7 @@ export default function TelaInicial() {
             ) : (
               <>
                 {/* ✅ agora usando Link corretamente */}
-                <Link to="/login" className="botao-principal">
+                <Link to="/CadastroUsuario" className="botao-principal">
                   Começar Agora <ArrowRight className="icon" />
                 </Link>
 
