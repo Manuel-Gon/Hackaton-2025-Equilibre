@@ -1,7 +1,7 @@
 /* --- Variáveis (Necessário para as cores funcionarem) --- */
 :root {
   --background: #ffffff;
-  --foreground: #020817;
+  --foreground: hsl(223, 84%, 5%);
   --primary: #0f172a;
   --primary-foreground: #ffffff;
   --muted: #f1f5f9;
@@ -14,7 +14,7 @@
 .pagina-diario {
   min-height: 100vh;
   transition: background-color 0.5s ease;
-  font-family: system-ui, -apple-system, sans-serif;
+  /* font-family: system-ui, -apple-system, sans-serif; */
   color: var(--foreground);
 }
 

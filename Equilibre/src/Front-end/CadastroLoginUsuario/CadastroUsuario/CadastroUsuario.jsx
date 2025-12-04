@@ -17,18 +17,29 @@ export default function CadastroUsuario() {
       return;
     }
 
-    const user = {
-      name,
-      email,
-    };
+    // ✅ Busca usuários existentes
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // ✅ Salva exatamente no mesmo padrão do login
-    localStorage.setItem("user", JSON.stringify(user));
+    // ✅ Verifica se email já existe
+    const userExists = users.find(u => u.email === email);
+    if (userExists) {
+      alert("Este email já está cadastrado!");
+      return;
+    }
+
+    const newUser = { name, email, password };
+
+    // ✅ Salva na lista de usuários
+    localStorage.setItem("users", JSON.stringify([...users, newUser]));
+
+    // ✅ Loga automaticamente após cadastro
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ name, email })
+    );
     localStorage.setItem("auth", "true");
 
     alert("Cadastro realizado com sucesso!");
-
-    // ✅ Redireciona sem recarregar a página
     navigate("/");
   }
 
@@ -36,7 +47,9 @@ export default function CadastroUsuario() {
     <div className="pagina-cadastro">
       <div className="card-cadastro">
         <div className="logo-area">
-          <div className="logo-circulo"></div>
+          <div className="logo-circulo">
+            <img className="logo-real-cadastro" src="logo equlibre.png" alt="" />
+          </div>
           <h1 className="titulo">Equilibre</h1>
         </div>
 

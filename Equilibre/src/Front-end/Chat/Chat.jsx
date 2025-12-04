@@ -27,11 +27,15 @@ export default function Chat() {
 
   // 🔹 CARREGA USUÁRIO LOGADO
   useEffect(() => {
-    const savedUser = localStorage.getItem("currentUser");
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
-  }, []);
+  const savedUser = localStorage.getItem("user");
+  const auth = localStorage.getItem("auth");
+
+  if (savedUser && auth === "true") {
+    setUser(JSON.parse(savedUser));
+  } else {
+    setUser(null);
+  }
+}, []);
 
   // 🔹 AUTO SCROLL
   useEffect(() => {
@@ -67,9 +71,10 @@ function sendMessage() {
   }
 
   function logout() {
-    localStorage.removeItem("currentUser");
-    navigate("/LoginUsuario");
-  }
+  localStorage.removeItem("user");
+  localStorage.removeItem("auth");
+  navigate("/LoginUsuario");
+}
 
   return (
     <div className="chat-container">

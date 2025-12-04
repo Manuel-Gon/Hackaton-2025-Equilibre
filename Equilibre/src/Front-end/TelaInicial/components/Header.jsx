@@ -8,10 +8,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Carrega o usuário diretamente do localStorage
+  // ✅ Agora lê do lugar CERTO
   useEffect(() => {
-    const savedUser = localStorage.getItem("currentUser");
-    if (savedUser) {
+    const savedUser = localStorage.getItem("user");
+    const auth = localStorage.getItem("auth");
+
+    if (savedUser && auth === "true") {
       setUser(JSON.parse(savedUser));
     } else {
       setUser(null);
@@ -19,10 +21,11 @@ export default function Header() {
   }, []);
 
   function logout() {
-    localStorage.removeItem("currentUser"); // ✅ Remove apenas isso
+    localStorage.removeItem("user");   // ✅ remove corretamente
+    localStorage.removeItem("auth");   // ✅ remove corretamente
     setUser(null);
     navigate("/");
-    window.location.reload(); // ✅ Atualiza Header automaticamente
+    window.location.reload(); 
   }
 
   return (
@@ -54,9 +57,10 @@ export default function Header() {
         <div className="auth-desktop-cabecalho">
           {user ? (
             <>
-             <span className="nome-usuario-cabecalho">
-  {user?.name || user?.nome || "Usuário"}
-</span>
+              <span className="nome-usuario-cabecalho">
+                {user?.name || "Usuário"}
+              </span>
+
               <button className="boton-fantaminho-cabecalho" onClick={logout}>
                 <LogOut size={16} />
                 Sair
